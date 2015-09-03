@@ -12,6 +12,8 @@
 
 - Updated license [\#58](https://github.com/inaka/apns4erl/pull/58) ([spike886](https://github.com/spike886))
 
+- add support for OTP 18
+
 ## [1.0.5](https://github.com/inaka/apns4erl/tree/1.0.5) (2015-06-01)
 
 [Full Changelog](https://github.com/inaka/apns4erl/compare/1.0.4...1.0.5)
