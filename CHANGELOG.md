@@ -1,8 +1,14 @@
 # Change Log
+## [1.0.7](https://github.com/Soulforged/apns4erl/tree/HEAD)
+
+[Full Changelog](https://github.com/inaka/apns4erl/compare/1.0.6...1.0.7)
+
+- fixed support for OTP 17
+
 
 ## [1.0.6](https://github.com/inaka/apns4erl/tree/HEAD)
 
-[Full Changelog](https://github.com/inaka/apns4erl/compare/1.0.5...HEAD)
+[Full Changelog](https://github.com/Soulforged/apns4erl/compare/1.0.5...1.0.6)
 
 **Merged pull requests:**
 
