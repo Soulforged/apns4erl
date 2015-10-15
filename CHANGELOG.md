@@ -1,4 +1,7 @@
 # Change Log
+## [1.0.9](https://github.com/Soulforged/apns4erl/tree/1.0.9)
+- Increased traffic parameters to let the supervisor recover on a connection reset.
+
 ## [1.0.7](https://github.com/Soulforged/apns4erl/tree/HEAD)
 
 [Full Changelog](https://github.com/inaka/apns4erl/compare/1.0.6...1.0.7)
