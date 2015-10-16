@@ -1,6 +1,6 @@
 # Change Log
 ## [1.0.9](https://github.com/Soulforged/apns4erl/tree/1.0.9)
-- Increased traffic parameters to let the supervisor recover on a connection reset.
+- Add timeout before reconnecting to avoid supervisor crash.
 
 ## [1.0.7](https://github.com/Soulforged/apns4erl/tree/HEAD)
 

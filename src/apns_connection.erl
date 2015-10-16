@@ -46,6 +46,7 @@ stop(ConnId) ->
   {ok, pid()} | {error, {already_started, pid()}}.
 start_link(Name, Connection) ->
   gen_server:start_link({local, Name}, ?MODULE, [Name, Connection], []).
+
 %% @hidden
 -spec start_link(apns:connection()) -> {ok, pid()}.
 start_link(Connection) ->
@@ -82,6 +83,7 @@ init(Connection) ->
 %% @hidden
 -spec init(atom(), apns:connection()) -> {ok, state() | {stop, term()}}.
 init(Name, Connection) ->
+  timer:sleep(1000),
   try
     {ok, QID} = apns_queue:start_link(),
     Timeout = epoch() + Connection#apns_connection.expires_conn,
@@ -299,7 +301,9 @@ handle_info(reconnect, State = #state{connection = Connection
   InfoLoggerFun("[ ~p ] Reconnecting the Feedback server...",[Name]),
   case open_feedback(Connection) of
     {ok, InSocket} -> {noreply, State#state{in_socket = InSocket}};
-    {error, Reason} -> {stop, {in_closed, Reason}, State}
+    {error, Reason} ->
+      erlang:send_after(5000, self(), reconnect),
+      {noreply, {in_closed, Reason}, State}
   end;
 
 handle_info({ssl_closed, SslSocket}
@@ -419,7 +423,7 @@ parse_status(_) -> unknown.
 %
 build_frame(MsgId, Expiry, BinToken, Payload, Priority) ->
   PayloadLength = erlang:size(Payload),
-  <<1:8, 32:16/big, BinToken/binary, 
+  <<1:8, 32:16/big, BinToken/binary,
     2:8, PayloadLength:16/big, Payload/binary,
     3:8, 4:16/big, MsgId/binary,
     4:8, 4:16/big, Expiry:4/big-unsigned-integer-unit:8,
@@ -433,4 +437,3 @@ call(Fun, Args) when is_function(Fun), is_list(Args) ->
     apply(Fun, Args);
 call({M,F}, Args) when is_list(Args) ->
     apply(M,F,Args).
-
