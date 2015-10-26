@@ -1,4 +1,7 @@
 # Change Log
+## [1.0.10](https://github.com/Soulforged/apns4erl/tree/1.0.9)
+- Increase APNS connection supervisor supported restart intensity.
+
 ## [1.0.9](https://github.com/Soulforged/apns4erl/tree/1.0.9)
 - Add timeout before reconnecting to avoid supervisor crash.
 
