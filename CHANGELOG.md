@@ -1,5 +1,9 @@
 # Change Log
-## [1.0.10](https://github.com/Soulforged/apns4erl/tree/1.0.9)
+
+## [1.0.11](https://github.com/Soulforged/apns4erl/tree/1.0.11)
+- Merge upstream changes.
+
+## [1.0.10](https://github.com/Soulforged/apns4erl/tree/1.0.10)
 - Increase APNS connection supervisor supported restart intensity.
 
 ## [1.0.9](https://github.com/Soulforged/apns4erl/tree/1.0.9)
